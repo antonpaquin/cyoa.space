@@ -1,0 +1,41 @@
+Models
+
+Adventure -- what data needs to be carried across the whole thing
+	has_many Stage
+
+	--What does the adventure look like (CSS)?
+	--Initial set "{}" (see pick)
+	--Adventure name
+	--Description text
+
+Stage -- what data is needed to show one page
+	belongs_to Adventure
+	has_many picks
+
+	--Stage name
+	--adventure_id
+	--only_if
+	--Stage-level CSS
+
+Pick -- what individual choices can be made
+	belongs_to Stage
+
+	--title
+	--image
+	--description
+	--css ("style" property)
+	--class
+	--only_if
+		"{
+			"credits":">400",
+			"did_pick_b":"false",
+		}"
+		Compare
+	--sets
+		"{
+			"credits": "-400",
+			"space": "=400"
+			"did_pick_a": "y=True",
+			"turret_cost": "-50",
+			"cost": "-turret_cost"
+		}"

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stage_id: 1
+  title: MyText
+  description: MyText
+  css: MyText
+  class: MyText
+  only_if: MyText
+  sets: MyText
+
+two:
+  stage_id: 1
+  title: MyText
+  description: MyText
+  css: MyText
+  class: MyText
+  only_if: MyText
+  sets: MyText
