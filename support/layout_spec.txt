@@ -1,0 +1,35 @@
+Arbitrary HTML is flexible but not guaranteed to look good or be easy to use.
+Instead we have a "layout" model which describes HTML and allows for variables.
+Intended usecase is, author describes a layout, then specifies some things that
+conform to that layout which will be auto-populated serverside.
+
+Variables are named by $name
+No a-zA-Z0-9 and underscores
+Any variable named $img_foo is an image tag and should be internally prefixed with whatever magic ruby needs to make uploaded file lookup work
+$$ is just a dollar sign '$' to allow escapes
+
+For stage layouts:
+pick locations should be denoted by $foo
+whereas in the content var they should be identified by their name in a corresponding json list
+
+Authors should define a <foo class="nextButton"></foo> which will be given a link via some jquery fuckery.
+Also a angular-like <p class="trackFoo"></p> should be able to auto-update to track certain vars
+so <p class="trackCredits"></p> should track the "credits" var
+When var is negative, the p class should be given a "negativeValue" class and it taken away when it goes to zero again
+Actually look into installing angular to make this work
+
+
+<div class="blah">
+  <p>$var</p>
+  <p style="foo">$var2</p>
+</div>
+<div>
+  <img $img_duck/>
+</div>
+
+Where the content field would be json like
+"{
+  "var":"magic duck",
+  "var2":"you get a duck",
+  "img_duck":"duck.jpg"
+}"

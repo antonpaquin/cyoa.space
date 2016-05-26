@@ -1,0 +1,37 @@
+Each pick has a bunch of JSON associated
+This is the rules that tell how the "state" changes with each pick
+It should be totally reversible
+Ideally converted from serverside rules to clientside JS verification
+eg.
+server, client, user:
+c-s: I want a page!
+s-c: Here is a page, your initial conditions are ---
+u-c: *makes choice*
+c-u: that's okay / not okay
+u-c: *next page*
+s-c: Here is next page, you know your own conditions already
+
+fuck stateless HTML. I should figure out how to do the asynch thing so that the client can track all the state vars
+https://css-tricks.com/dynamic-page-replacing-content/
+
+For reversibility, the json should be limited to +- integer quantities
+Let's not do changing variables for now (eg. turret cost -= 20)
+
+Only_if rules:
+Verify on pick choices in clientside JS
+Should default to something like {"money":">cost"}
+verification is an only_if at the end of the adventure
+And/or should be nestable, so something like
+{
+  "AND": [
+    {"value": "=condition"},
+    {"value":">condition"}
+  ],
+  "OR": [
+    {"value":"=condition"},
+    {"AND":[
+      {"value":"<condition"},
+      {"value":"=condition"}
+    ]}
+  ]
+}

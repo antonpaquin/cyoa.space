@@ -3,39 +3,68 @@ Models
 Adventure -- what data needs to be carried across the whole thing
 	has_many Stage
 
-	--What does the adventure look like (CSS)?
-	--Initial set "{}" (see pick)
-	--Adventure name
-	--Description text
+	css
+		text
+		Adventure-level CSS, will be applied to each page
+	set
+		text
+		initial state, see state_spec
+	verify
+		text
+		only_if that tells what the state is allowed to be like at the end
+	Adventure
+		name
+		self-evident. Note: check naming conventions to make sure this is ok
+	Description
+		text
+		Actually a description, for index purposes.
 
 Stage -- what data is needed to show one page
 	belongs_to Adventure
 	has_many picks
+	has_one stagelayout
 
-	--Stage name
-	--adventure_id
-	--only_if
-	--Stage-level CSS
+	Stage
+		name
+		self-evident
+	adventure_id
+	 integer
+	 Does ruby automatically do this for me?
+	layout_id
+	 integer
+	 ^^
 
 Pick -- what individual choices can be made
 	belongs_to Stage
+	has_one picklayout
 
-	--title
-	--image
-	--description
-	--css ("style" property)
-	--class
-	--only_if
-		"{
-			"credits":">400",
-			"did_pick_b":"false",
-		}"
-		Compare
-	--sets
-		"{
-			"credits": "-400",
-			"space": "=400"
-			"did_pick_a": "y=True",
-			"turret_cost": "-50",
-			"cost": "-turret_cost"
-		}"
+	Pick
+		name
+		Name should be used for identification in a stagelayout
+	title
+		text
+		Human-readable title, for indexing / ID purposes. CoC assigned to $title (which can be overridden)
+	content
+		text
+		defines variables that go into picklayout. See layout_spec
+	only_if
+		text
+		determines special conditions that must be met for a pick to be chosen. See state_spec
+	sets
+		text
+		Tells how vars should react to this pick being chosen / unchosen. See state_spec
+
+
+Picklayout -- how a pick should be laid out
+	belongs_to pick
+
+	html
+		text
+		Defines a pick. See layout_spec
+
+Stagelayout -- how a stage should be laid out
+	belongs_to stage
+
+	html
+		text
+		Defines a stage. See layout_spec

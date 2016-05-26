@@ -1,0 +1,96 @@
+Models
+
+Adventure
+	css="/*TODO*/"
+	set="{
+    "points":"3"
+  }"
+	verify="{
+    "points":">=0"
+  }"
+	Adventure="Magic Items"
+	Description="I'm trying to implement something super simple"
+
+Stage
+	Stage="Main"
+  content="{
+    "picks":[
+      "duck",
+      "hat",
+      "ring",
+      "pen"
+    ]
+  }"
+	adventure_id=1
+	layout_id=1
+
+Pick
+  Pick="duck"
+	title="Magic Duck"
+	content="{
+    "description":"It's a magic duck",
+    "img_1":"duck.png"
+  }"
+	only_if="{
+    "points":">0"
+  }"
+	sets="{
+    "points":"-1"
+  }"
+
+	Pick="ring"
+	title="Magic Ring"
+	content="{
+    "description":"It's a magic ring",
+    "img_1":"ring.png"
+  }"
+	only_if="{
+    "points":">0"
+  }"
+	sets="{
+    "points":"-1"
+  }"
+
+  Pick="hat"
+	title="Magic Hat"
+	content="{
+    "description":"It's a magic hat",
+    "img_1":"hat.png"
+  }"
+	only_if="{
+    "points":">0"
+  }"
+	sets="{
+    "points":"-1"
+  }"
+
+  Pick="pen"
+	title="Magic Pen"
+	content="{
+    "description":"It's a magic pen",
+    "img_1":"pen.png"
+  }"
+	only_if="{
+    "points":">0"
+  }"
+	sets="{
+    "points":"-1"
+  }"
+
+
+Picklayout
+	html="
+  <div class="pick">
+    <h1>$title</h1>
+    <img $img_1/>
+    <p>$description</p>
+  </div>
+  "
+
+Stagelayout
+	html="
+  <h1>Magic something something</h1>
+  <p>Pick three</p>
+  $picks
+  <p class="nextButton">Done</p>
+  "
