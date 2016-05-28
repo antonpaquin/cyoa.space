@@ -5,8 +5,6 @@ Home
 Adventure
   get
     human recipient. Show a title text, and some jQ to grab first stage
-  all
-    an index page
   (create)
   (update)
   (destroy)

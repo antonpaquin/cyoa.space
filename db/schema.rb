@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527154023) do
+ActiveRecord::Schema.define(version: 20160528111439) do
 
   create_table "adventures", force: :cascade do |t|
     t.string   "title"
@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(version: 20160527154023) do
   end
 
   create_table "picks", force: :cascade do |t|
-    t.string   "title"
     t.string   "pick"
+    t.text     "title"
     t.text     "content"
     t.text     "only_if"
     t.text     "sets"
     t.integer  "picklayout_id"
+    t.integer  "stage_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -1,6 +1,6 @@
 class Stage < ActiveRecord::Base
   belongs_to :adventure
   has_many :picks
-  has_one :stagelayout
-  
+  belongs_to :stagelayout
+
 end

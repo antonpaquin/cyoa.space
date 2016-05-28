@@ -41,16 +41,18 @@ picklayout = Picklayout.create(
     '
   )
 
-def makePick(name)
+define_singleton_method("makePick") do |name|
   Pick.create(
     pick:name,
   	title:"Magic " + name,
   	content:'{"description":"It\'s a magic '+name+'","img_1":"'+name+'.png"}',
   	only_if:'{"points":">0"}',
 	  sets:'{"points":"-1"}',
-    picklayout_id:1
+    picklayout_id:picklayout.id,
+    stage_id:stage.id
   )
 end
+
 makePick("duck")
 makePick("hat")
 makePick("pen")

@@ -18,6 +18,7 @@ Adventure -- what data needs to be carried across the whole thing
 	description
 		text
 		Actually a description, for index purposes.
+    
 
 Stage -- what data is needed to show one page
 	belongs_to Adventure
@@ -61,6 +62,9 @@ Pick -- what individual choices can be made
 		text
 		Tells how vars should react to this pick being chosen / unchosen. See state_spec
 	picklayout_id
+		integer
+		self-evident
+	stage_id
 		integer
 		self-evident
 

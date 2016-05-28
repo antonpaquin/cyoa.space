@@ -1,3 +1,3 @@
 class Stagelayout < ActiveRecord::Base
-  belongs_to :stage
+  has_many :stage
 end
