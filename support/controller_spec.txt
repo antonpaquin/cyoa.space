@@ -1,0 +1,26 @@
+Home
+  root
+  search
+
+Adventure
+  get
+    human recipient. Show a title text, and some jQ to grab first stage
+  (create)
+  (update)
+  (destroy)
+
+Stage
+  get
+    Load up a stage + picks, stick in a nice <div> and send to be jquery.load'ed
+  (create)
+  (update)
+  (destroy)
+
+Pick
+  (create)
+  (update)
+  (destroy)
+
+
+The only routes should be to /adventure .
+Creating a stage / picks should be handled by whatever is in

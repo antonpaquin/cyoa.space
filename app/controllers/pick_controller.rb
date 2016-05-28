@@ -1,0 +1,2 @@
+class PickController < ApplicationController
+end
