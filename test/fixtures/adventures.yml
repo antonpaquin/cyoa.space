@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  title: MyString
   css: MyText
   set: MyText
-  name: MyText
+  verify: MyText
   description: MyText
 
 two:
+  title: MyString
   css: MyText
   set: MyText
-  name: MyText
+  verify: MyText
   description: MyText

@@ -22,7 +22,7 @@ Stage
     ]
   }"
 	adventure_id=1
-	layout_id=1
+	stagelayout_id=1
 
 Pick
   Pick="duck"
@@ -37,6 +37,7 @@ Pick
 	sets="{
     "points":"-1"
   }"
+  picklayout_id=1
 
 	Pick="ring"
 	title="Magic Ring"
@@ -50,6 +51,7 @@ Pick
 	sets="{
     "points":"-1"
   }"
+  picklayout_id=1
 
   Pick="hat"
 	title="Magic Hat"
@@ -63,6 +65,7 @@ Pick
 	sets="{
     "points":"-1"
   }"
+  picklayout_id=1
 
   Pick="pen"
 	title="Magic Pen"
@@ -76,6 +79,7 @@ Pick
 	sets="{
     "points":"-1"
   }"
+  picklayout_id=1
 
 
 Picklayout

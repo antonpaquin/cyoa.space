@@ -12,10 +12,10 @@ Adventure -- what data needs to be carried across the whole thing
 	verify
 		text
 		only_if that tells what the state is allowed to be like at the end
-	Adventure
-		name
-		self-evident. Note: check naming conventions to make sure this is ok
-	Description
+	title
+		string
+		self-evident
+	description
 		text
 		Actually a description, for index purposes.
 
@@ -24,25 +24,32 @@ Stage -- what data is needed to show one page
 	has_many picks
 	has_one stagelayout
 
-	Stage
-		name
+	title
+		string
 		self-evident
 	adventure_id
-	 integer
-	 Does ruby automatically do this for me?
-	layout_id
-	 integer
-	 ^^
+		integer
+		Does ruby automatically do this for me?
+	stagelayout_id
+		integer
+		^^
+	order
+		integer
+		what order the stage should be shown in, 1 first, 0 never
+	content
+		text
+		defines pick vars to be stuck in the layout
+
 
 Pick -- what individual choices can be made
 	belongs_to Stage
 	has_one picklayout
 
 	Pick
-		name
+		string
 		Name should be used for identification in a stagelayout
 	title
-		text
+		string
 		Human-readable title, for indexing / ID purposes. CoC assigned to $title (which can be overridden)
 	content
 		text
@@ -53,6 +60,9 @@ Pick -- what individual choices can be made
 	sets
 		text
 		Tells how vars should react to this pick being chosen / unchosen. See state_spec
+	picklayout_id
+		integer
+		self-evident
 
 
 Picklayout -- how a pick should be laid out

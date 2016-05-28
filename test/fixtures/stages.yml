@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  title: MyString
+  content: MyText
   adventure_id: 1
-  name: MyText
-  css: MyText
-  only_if: MyText
+  stagelayout_id: 1
+  order: 1
 
 two:
+  title: MyString
+  content: MyText
   adventure_id: 1
-  name: MyText
-  css: MyText
-  only_if: MyText
+  stagelayout_id: 1
+  order: 1

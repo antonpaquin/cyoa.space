@@ -16,7 +16,7 @@ Authors should define a <foo class="nextButton"></foo> which will be given a lin
 Also a angular-like <p class="trackFoo"></p> should be able to auto-update to track certain vars
 so <p class="trackCredits"></p> should track the "credits" var
 When var is negative, the p class should be given a "negativeValue" class and it taken away when it goes to zero again
-Actually look into installing angular to make this work
+Actually look into installing angular to make this work nah fuck that vanilla is fine
 
 
 <div class="blah">
