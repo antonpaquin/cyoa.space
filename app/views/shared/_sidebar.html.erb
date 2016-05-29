@@ -2,11 +2,11 @@
 	<div id="hideButton" class="sidebarButton"><div class="leftArrow"></div></div>
 	<div id="info">
 		<h1 class="title">Magic Items</h1>
-		<p class="author">by <a>Ataraxia</a></p>
-		<p class="description emboss"> I'm trying to implement something super simple </p>
+		<p class="author">by <a><%=@adventure.account.name%></a></p>
+		<p class="description emboss"><%=@adventure.description%></p>
 	</div>
 	<div id="tags">
-		<h2>Tags</h2>
+		<h2>Tags</h2><!-- http://railscasts.com/episodes/382-tagging -->
 		<p>Magic Items</p>
 		<p>Short</p>
 		<p>Fantasy</p>
@@ -14,23 +14,29 @@
 		<p>Bad CSS</p>
 		<p>Foo</p>
 		<p>Bar</p>
+		<p>Tagging</p>
+		<p>Not</p>
+		<p>Yet</p>
+		<p>Implemented</p>
 	</div>
 	<div id="stats">
 		<h2>Stats</h2>
 		<div class="emboss">
 			<div class="fieldcolumn">
 				<p>Played:</p>
+				<p>Rating:</p>
 				<p>Rated:</p>
 				<p>Created:</p>
 				<p>Updated:</p>
 				<p>Favorites:</p>
 			</div>
 			<div class="datacolumn">
-				<p>0 times</p>
-				<p>0/10</p>
+				<p><%=@adventure.playcount%> times</p>
+				<p><%=@adventure.rating%>/10</p>
+				<p><%=@adventure.ratecount%> times</p>
 				<p>0 days ago</p>
 				<p>0 days ago</p>
-				<p>0</p>
+				<p><%=@adventure.favorites%></p>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pass_hash: MyString
+  usergroup: 1
+
+two:
+  name: MyString
+  pass_hash: MyString
+  usergroup: 1

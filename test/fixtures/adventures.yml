@@ -1,15 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
   css: MyText
   set: MyText
   verify: MyText
+  title: MyString
   description: MyText
+  playcount: 1
+  stagecount: 1
+  rating: 1.5
+  ratecount: 1
+  favorites: 1
+  account_id: 1
+  public: false
 
 two:
-  title: MyString
   css: MyText
   set: MyText
   verify: MyText
+  title: MyString
   description: MyText
+  playcount: 1
+  stagecount: 1
+  rating: 1.5
+  ratecount: 1
+  favorites: 1
+  account_id: 1
+  public: false

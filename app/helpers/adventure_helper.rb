@@ -7,7 +7,7 @@ module AdventureHelper
   end
   def controlJS(advId)
     "<script>
-      var advId = ".html_safe+advId+";
+      var advId = ".html_safe + advId.to_s + ";
       var stageNum = 1;
       function loadStage(sNum) {
         var url = \"http://www.cyoa.space/Stage?\";

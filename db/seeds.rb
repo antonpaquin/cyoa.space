@@ -6,12 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+account = Account.create!(
+  name: 'Ataraxia',
+  pass_hash: 'hahanope',
+  usergroup: 0
+)
+
 adventure = Adventure.create(
   title: 'Magic Items',
   css: "/*TODO*/",
   set: '{"points":3}',
   verify: '{"points":">=0"}',
-  description: "I'm trying to implement something super simple"
+  description: "I'm trying to implement something super simple",
+  playcount: 0,
+  stagecount: 1,
+  rating: 5.1,
+  ratecount: 1,
+  favorites: 0,
+  account_id: account.id,
+  public: true
   )
 
 stagelayout = Stagelayout.create(

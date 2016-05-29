@@ -11,16 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528111439) do
+ActiveRecord::Schema.define(version: 20160529142440) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "pass_hash"
+    t.integer  "usergroup"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "adventures", force: :cascade do |t|
-    t.string   "title"
     t.text     "css"
     t.text     "set"
     t.text     "verify"
+    t.string   "title"
     t.text     "description"
+    t.integer  "playcount"
+    t.integer  "stagecount"
+    t.float    "rating"
+    t.integer  "ratecount"
+    t.integer  "favorites"
+    t.integer  "account_id"
+    t.boolean  "public"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "adventure_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "name"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "picklayouts", force: :cascade do |t|
