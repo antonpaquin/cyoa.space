@@ -8,8 +8,9 @@
 
 account = Account.create!(
   name: 'Ataraxia',
-  pass_hash: 'hahanope',
-  usergroup: 0
+  pass_hash: '\xA73\xFF_\x1D/X\xBEP\xD87\xE5\x11n\x8B\x06DT\xC1\x14\xBC\x8F\x96Q\x99\xF3-{\x82d\xFBc',
+  usergroup: 0,
+  salt: '#*$%888'
 )
 
 adventure = Adventure.create(

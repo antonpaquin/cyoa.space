@@ -115,9 +115,13 @@ Account -- users
 	pass_hash
 		string
 		password hash
+	salt
+		string
+		password salt
 	usergroup
 		integer
 		Dev=0, Admin=1, User=2
+
 
 Image -- stored images
 	belongs_to :adventure

@@ -3,9 +3,11 @@
 one:
   name: MyString
   pass_hash: MyString
+  salt: MyString
   usergroup: 1
 
 two:
   name: MyString
   pass_hash: MyString
+  salt: MyString
   usergroup: 1

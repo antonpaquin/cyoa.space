@@ -1,10 +1,4 @@
 module AdventureHelper
-  def sidebar(title, description)
-    "<div id=\"Sidebar\">
-      <p>".html_safe+title+"</p>
-      <p>".html_safe+description+"</p>
-    </div>".html_safe
-  end
   def controlJS(advId)
     "<script>
       var advId = ".html_safe + advId.to_s + ";

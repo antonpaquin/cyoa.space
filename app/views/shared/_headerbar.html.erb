@@ -1,3 +1,4 @@
+<%=stylesheet_link_tag 'headerbar'%>
 <div id="headbar">
   <!-- TODO all this shit make it <a>'s -->
   <p class="logo">CYOA</p>
@@ -5,7 +6,7 @@
   <p>Random</p>
   <p>Create</p>
   <input type="search" placeholder="Search..."/>
-  <p class="login">New Account</p>
-  <p class="login">Login</p>
+  <a href='/NewAccount' class="login">New Account</a>
+  <a href='/Login' class="login">Login</a>
 </div>
 <%= yield %>

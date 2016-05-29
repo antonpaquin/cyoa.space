@@ -5,4 +5,10 @@ class AdventureController < ApplicationController
 
   def all
   end
+
+  def edit
+  end
+
+  def images
+  end
 end

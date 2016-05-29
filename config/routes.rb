@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root 'home#root'
   get 'Adventure/:id' => 'adventure#get'
   get 'Stage' => 'stage#get'
+  get 'Login' => 'account#login'
+  post 'Login' => 'account#authenticate'
+  get 'NewAccount' => 'account#new'
+  post 'NewAccount' => 'account#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

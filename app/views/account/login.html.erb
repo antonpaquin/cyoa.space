@@ -1,0 +1,13 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'account' %>
+<div id="main">
+<h1>Login</h1>
+<%= form_tag do %>
+  <input name="username" placeholder="Username" type="text"/>
+  <input name="password" placeholder="Password" type="password"/>
+  <input type="submit"/>
+<% end %>
+<% if (@error) %>
+  <p><%=@message%></p>
+<%end%>
+</div>

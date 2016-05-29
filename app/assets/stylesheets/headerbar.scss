@@ -17,7 +17,7 @@
 	font-size: 26px !important;
 }
 
-#headbar p {
+#headbar p, #headbar a {
 	/* The box takes up space */
 	float: left;
 	min-width: 100px;
@@ -30,6 +30,7 @@
 	text-align: center;
 	/* Font looks like */
 	font-size: 20px;
+	text-decoration: none;
 	/* Stick a bar at the end */
 	border: 1px solid var(--lightcolor);
 	border-style: none solid none none;
@@ -37,12 +38,12 @@
 	transition: background-color .15s;
 }
 
-#headbar p:hover {
+#headbar p:hover, #headbar a:hover {
 	/* Fancy lights */
 	background-color: var(--lightcolor);
 }
 
-#headbar p.login {
+#headbar p.login, #headbar a.login {
 	float: right;
 	border-style: none none none solid;
 }
