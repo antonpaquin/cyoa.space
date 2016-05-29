@@ -7,6 +7,9 @@
 	/* This should be the same as height to make text vertical centering work */
 	line-height: 65px;
 	position: relative;
+	/* be on top */
+	z-index: 1;
+	background-color: var(--bodycolor);
 }
 
 #headbar .logo {

@@ -15,13 +15,13 @@
  */
 
  :root {
- 	--bodycolor: #363636;
- 	--linecolor: #888888;
- 	--textcolor: #F0F0F0;
- 	--lightcolor: #A5A5A5;
- 	--darkcolor: #262626;
- 	--flaircolor: #A5A5A5;
- }
+  	--bodycolor: #363636;
+  	--linecolor: #888888;
+  	--textcolor: #F0F0F0;
+  	--lightcolor: #A5A5A5;
+  	--darkcolor: #262626;
+  	--flaircolor: #A5A5A5;
+  }
 
  @font-face {
      font-family: 'Exo2Black';
@@ -44,6 +44,6 @@
  	margin: 0px;
  }
 
- p,h1 {
+ p,h1,h2,a {
  	color: var(--textcolor);
  }

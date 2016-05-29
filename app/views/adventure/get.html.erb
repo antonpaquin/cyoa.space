@@ -1,9 +1,10 @@
-<%= sidebar(@adventure.title, @adventure.description) %>
+<%= render 'shared/headerbar' %>
+<%= render 'shared/sidebar' %>
 <div id="adventure_main">
   <style scoped>
     <%=@adventure.css %>
   </style>
-  <div id="stage_frame">
+  <div id="stage_frame" class="sidebarPadding">
   </div>
 </div>
 <%= controlJS(@advId) %>

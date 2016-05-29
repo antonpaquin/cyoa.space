@@ -1,0 +1,59 @@
+<div id="sidebar">
+	<div id="hideButton" class="sidebarButton"><div class="leftArrow"></div></div>
+	<div id="info">
+		<h1 class="title">Magic Items</h1>
+		<p class="author">by <a>Ataraxia</a></p>
+		<p class="description emboss"> I'm trying to implement something super simple </p>
+	</div>
+	<div id="tags">
+		<h2>Tags</h2>
+		<p>Magic Items</p>
+		<p>Short</p>
+		<p>Fantasy</p>
+		<p>Testing</p>
+		<p>Bad CSS</p>
+		<p>Foo</p>
+		<p>Bar</p>
+	</div>
+	<div id="stats">
+		<h2>Stats</h2>
+		<div class="emboss">
+			<div class="fieldcolumn">
+				<p>Played:</p>
+				<p>Rated:</p>
+				<p>Created:</p>
+				<p>Updated:</p>
+				<p>Favorites:</p>
+			</div>
+			<div class="datacolumn">
+				<p>0 times</p>
+				<p>0/10</p>
+				<p>0 days ago</p>
+				<p>0 days ago</p>
+				<p>0</p>
+			</div>
+		</div>
+	</div>
+	<div id="options">
+		<h2>Options</h2>
+		<a>Rate</a>
+		<a>Favorite</a>
+		<a>Edit</a>
+		<a>Delete</a>
+		<a>Report</a>
+	</div>
+</div>
+<div id="showButton" class="sidebarButton hidden"><div class="rightArrow"></div></div>
+<script>
+		$('#hideButton').click(function() {
+			$('#sidebar').addClass('hidden');
+			$('#showButton').removeClass('hidden');
+			$('#stage_frame').removeClass('sidebarPadding');
+		});
+		$('#showButton').click(function() {
+			$('#sidebar').removeClass('hidden');
+			$('#showButton').addClass('hidden');
+			$('#stage_frame').addClass('sidebarPadding');
+		});
+</script>
+<%= yield %>
