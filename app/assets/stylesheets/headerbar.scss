@@ -1,0 +1,54 @@
+#headbar {
+	/* Make a shade underneath */
+	box-shadow: 0px 4px 4px;
+	/* Set height */
+	width: 100%;
+	height: 65px;
+	/* This should be the same as height to make text vertical centering work */
+	line-height: 65px;
+	position: relative;
+}
+
+#headbar .logo {
+	font-family: Exo2Black;
+	font-size: 26px !important;
+}
+
+#headbar p {
+	/* The box takes up space */
+	float: left;
+	min-width: 100px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0px;
+	height: 100%;
+	/* Center things */
+	vertical-align: middle;
+	text-align: center;
+	/* Font looks like */
+	font-size: 20px;
+	/* Stick a bar at the end */
+	border: 1px solid var(--lightcolor);
+	border-style: none solid none none;
+	/* Make the background color change smoothly */
+	transition: background-color .15s;
+}
+
+#headbar p:hover {
+	/* Fancy lights */
+	background-color: var(--lightcolor);
+}
+
+#headbar p.login {
+	float: right;
+	border-style: none none none solid;
+}
+
+#headbar input {
+	/* Size the thing */
+	top: 10px;
+	bottom: 10px;
+	margin-left: 10px;
+	position: absolute;
+	font-size: 20px;
+}

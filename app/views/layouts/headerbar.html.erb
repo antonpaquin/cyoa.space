@@ -1,9 +1,22 @@
-<div id="headBar">
-  <p>I think something like wallhaven.cc would work good</p>
-  <p>that is, a nice short bar with emboss-separated actions and a search bar</p>
-  <p>Explicitly: logo, latest, random, upload, forums, more, search</p>
-  <p>and then a register, login over right-justified</p>
-  <p>More includes: untagged, tags, rules, about, FAQ, stats, team, contact and some IRC links</p>
-  <p>I'm sure the CSS people have solved this kind of problem before</p>
-  <p>By the way: 'render layout: headerbar' at the end of the method</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cyoa</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="headbar">
+  	<!-- TODO all this shit make it <a>'s -->
+  	<p class="logo">CYOA</p>
+  	<p>Latest</p>
+  	<p>Random</p>
+  	<p>Create</p>
+  	<input type="search" placeholder="Search..."/>
+  	<p class="login">New Account</p>
+  	<p class="login">Login</p>
+  </div>
+<%= yield %>
+</body>
+</html>

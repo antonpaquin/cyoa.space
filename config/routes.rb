@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'home#root'
   get 'Adventure/:id' => 'adventure#get'
   get 'Stage' => 'stage#get'
   # The priority is based upon order of creation: first created -> highest priority.

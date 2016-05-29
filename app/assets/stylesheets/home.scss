@@ -1,3 +1,43 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#hcontainer {
+	position: absolute;
+	top: 250px;
+	width: 100%;
+	text-align: center;
+}
+
+#hcontainer h1 {
+	font-size: 75px;
+}
+
+#hcontainer input {
+	font-size: 30px;
+	width: 90%;
+	max-width: 780px;
+	border-radius: 5px;
+	border: 5px solid var(--darkcolor);
+}
+
+#hcontainer input:focus {
+	outline: none;
+	border-color: var(--linecolor);
+}
+
+#hcontainer p {
+	font-size: 30px;
+	height: 50px;
+	line-height: 50px;
+	border: 2px solid var(--linecolor);
+	border-radius: 5px;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#hcontainer p:hover {
+	background-color: var(--linecolor);
+	color: var(--bodycolor);
+}

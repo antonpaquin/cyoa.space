@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+ :root {
+ 	--bodycolor: #363636;
+ 	--linecolor: #888888;
+ 	--textcolor: #F0F0F0;
+ 	--lightcolor: #A5A5A5;
+ 	--darkcolor: #262626;
+ 	--flaircolor: #A5A5A5;
+ }
+
+ @font-face {
+     font-family: 'Exo2Black';
+     src: font-url('Exo2Black.otf');
+ }
+
+ /* Blue-ish theme
+ :root {
+ 	--bodycolor: #23323F;
+ 	--linecolor: #839BAF;
+ 	--textcolor: #E5E5E5;
+ 	--lightcolor: #A5A5A5;
+ 	--darkcolor: #262626;
+ 	--flaircolor: #EF798A;
+ } */
+
+ body {
+ 	background: var(--bodycolor);
+ 	/* Override default 8px margin */
+ 	margin: 0px;
+ }
+
+ p,h1 {
+ 	color: var(--textcolor);
+ }
