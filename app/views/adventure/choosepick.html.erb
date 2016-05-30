@@ -1,0 +1,16 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'adventure' %>
+<div id="main" class="edit">
+<h1>Editing adventure: <%=@adventure.title%></h1>
+<h2>Model: Choice</h2>
+<p>Choose a choice:</p>
+<% @adventure.picks.each do |pick| %>
+<a href="Adventure/<%=@id%>/Edit?model=pick&modelid=<%=pick.id%>"><%=pick.title%></a>
+<%end%>
+<p>Or:</p>
+<a href="Adventure/<%=@id%>/Create?model=pick">Create a new choice</a>
+<a href="Adventure/<%=@id%>/Create?model=picklayout">Create a new choice layout</a>
+<br/>
+<a href="Adventure/<%=@id%>/Edit">Go back</a>
+<a href="/Guide">Guide</a>
+</div>

@@ -67,7 +67,7 @@ Stage -- what data is needed to show one page
 
 Pick -- what individual choices can be made
 	belongs_to Stage
-	has_one picklayout
+	belongs_to picklayout
 
 	Pick
 		string
@@ -93,14 +93,14 @@ Pick -- what individual choices can be made
 
 
 Picklayout -- how a pick should be laid out
-	belongs_to pick
+	has_many picks
 
 	html
 		text
 		Defines a pick. See layout_spec
 
 Stagelayout -- how a stage should be laid out
-	belongs_to stage
+	has_many stages
 
 	html
 		text

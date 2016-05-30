@@ -1,3 +1,9 @@
-<p> do some design shit here </p>
-<p> like, a big logo and a searchbar </p>
-<p> I'm thinking something like the rubygems home page </p>
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'home' %>
+<div id="main">
+<h1 class="title">Choose your own adventure.</h1>
+<%= form_tag("/Search", method: "get") do %>
+  <input type="search" name="query" autofocus="autofocus"/>
+<%end%>
+<p class="button">Browse</p>
+</div>

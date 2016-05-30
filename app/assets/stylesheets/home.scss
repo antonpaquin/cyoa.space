@@ -2,18 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#hcontainer {
+#main {
 	position: absolute;
-	top: 250px;
+	top: 100px;
 	width: 100%;
 	text-align: center;
 }
 
-#hcontainer h1 {
+#main .title {
+	margin-top: 150px;
 	font-size: 75px;
 }
 
-#hcontainer input {
+#main input {
 	font-size: 30px;
 	width: 90%;
 	max-width: 780px;
@@ -21,12 +22,12 @@
 	border: 5px solid var(--darkcolor);
 }
 
-#hcontainer input:focus {
+#main input:focus {
 	outline: none;
 	border-color: var(--linecolor);
 }
 
-#hcontainer p {
+#main .button {
 	font-size: 30px;
 	height: 50px;
 	line-height: 50px;
@@ -37,7 +38,16 @@
 	margin-right: auto;
 }
 
-#hcontainer p:hover {
+#main .button:hover {
 	background-color: var(--linecolor);
 	color: var(--bodycolor);
+}
+
+#guide {
+	margin-top: 100px;
+	text-align: left;
+	width: 100%;
+}
+#guide p {
+	margin-left: 30px;
 }

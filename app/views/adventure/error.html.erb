@@ -1,0 +1,7 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'adventure' %>
+<div id="main">
+<p>There was an error!</p>
+<p><%=@message%></p>
+<a href="/Adventure/<%=@adventure.id%>">Go back</a>
+</div>

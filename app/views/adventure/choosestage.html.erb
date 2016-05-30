@@ -1,0 +1,16 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'adventure' %>
+<div id="main" class="edit">
+<h1>Editing adventure: <%=@adventure.title%></h1>
+<h2>Model: Stage</h2>
+<p>Choose a stage:</p>
+<% @adventure.stages.each do |stage| %>
+<a href="Adventure/<%=@id%>/Edit?model=stage&modelid=<%=stage.id%>"><%=stage.title%></a>
+<%end%>
+<p>Or:</p>
+<a href="Adventure/<%=@id%>/Create?model=stage">Create a new stage</a>
+<a href="Adventure/<%=@id%>/Create?model=stagelayout">Create a new stage layout</a>
+<br/>
+<a href="Adventure/<%=@id%>/Edit">Go back</a>
+<a href="/Guide">Guide</a>
+</div>

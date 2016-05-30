@@ -1,11 +1,13 @@
 <%=stylesheet_link_tag 'headerbar'%>
 <div id="headbar">
   <!-- TODO all this shit make it <a>'s -->
-  <p class="logo">CYOA</p>
+  <a href='/' class="logo">CYOA</a>
   <p>Latest</p>
   <p>Random</p>
   <p>Create</p>
-  <input type="search" placeholder="Search..."/>
+  <%= form_tag("/Search", method: "get") do %>
+    <input type="search" name="query" placeholder="Search..."/>
+  <%end%>
   <a href='/NewAccount' class="login">New Account</a>
   <a href='/Login' class="login">Login</a>
 </div>

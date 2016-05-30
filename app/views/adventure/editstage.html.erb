@@ -1,0 +1,15 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'adventure' %>
+<div id="main" class="edit">
+<h1>Editing adventure: <%=@adventure.title%></h1>
+<h2>Model: Stage</h2>
+<p>You can:</p>
+<a href="Adventure/<%=@id%>/Edit?model=adventure&field=title">Edit the title</a>
+<a href="Adventure/<%=@id%>/Edit?model=adventure&field=description">Edit the description</a>
+<a href="Adventure/<%=@id%>/Edit?model=adventure&field=css">Edit the CSS</a>
+<a href="Adventure/<%=@id%>/Edit?model=adventure&field=set">Edit the "Set" variable</a>
+<a href="Adventure/<%=@id%>/Edit?model=adventure&field=verify">Edit the "Verify" variable</a><a href="/Guide"> (Need a description of the variables?)</a>
+<a href="Adventure/<%=@id%>/Edit?model=adventure&field=public">Publish / unpublish the adventure</a>
+<a href="Adventure/<%=@id%>/Edit">Go back</a>
+<p>Need a description of the variables?</p><a href="/Guide">Click here</a>
+</div>
