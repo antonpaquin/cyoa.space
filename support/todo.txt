@@ -1,19 +1,4 @@
-1. Fix that fucking pristine thing X
-2. Destroy old models O
-3. Build new models O
-4. Stick the example model in seeds
-5. Make controllers -- controller_spec
-6. Write up everything to load properly
-7. Write a fuckton of JS generators to actually power everything
+Fuck I just had a good idea...
 
-
-rails destroy model Stage
-rails destroy model Pick
-rails generate model Adventure title:string css:text set:text verify:text description:text
-rails generate model Stage title:string content:text adventure_id:integer stagelayout_id:integer order:integer
-rails generate model Pick title:string pick:string content:text only_if:text sets:text picklayout_id:integer
-rails generate model Picklayout html:text
-rails generate model Stagelayout html:text
-rails generate controller Adventure
-rails generate controller Stage
-rails generate controller Pick
+There should be a zipfile import option for creation, instead of whatever shitty UI I have going on now
+That way these things can be stuck in version control / edited with whatever UI you like

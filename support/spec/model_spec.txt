@@ -101,6 +101,9 @@ Picklayout -- how a pick should be laid out
 	title
 		string
 		What do we call this layout
+	adventure_id
+		integer
+		owning adventure
 
 Stagelayout -- how a stage should be laid out
 	has_many stages
@@ -111,6 +114,9 @@ Stagelayout -- how a stage should be laid out
 	title
 		string
 		What do we call this layout
+	adventure_id
+		integer
+		owning adventure
 
 Account -- users
 	has_many adventures

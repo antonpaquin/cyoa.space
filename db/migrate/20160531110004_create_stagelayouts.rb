@@ -3,6 +3,7 @@ class CreateStagelayouts < ActiveRecord::Migration
     create_table :stagelayouts do |t|
       t.text :html
       t.string :title
+      t.integer :adventure_id
 
       t.timestamps null: false
     end

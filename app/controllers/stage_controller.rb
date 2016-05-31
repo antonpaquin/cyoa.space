@@ -1,4 +1,6 @@
 class StageController < ApplicationController
+  include ApplicationHelper
+  
   def get
     #Params: advId, stageNum
     stage = Stage.where(adventure_id: params[:advId], order: params[:stageNum]).take
@@ -19,8 +21,19 @@ class StageController < ApplicationController
   end
 
   def edit
-    @stage = Stage.find(params[:id])
-    @adventure = Stage.adventure
+    begin
+      @stage = Stage.find(params[:id])
+      @model = @stage
+      @adventure = @model.adventure
+      @validFields = ['title','content','order','stagelayout_id']
+      @field, @old, @inputtype = doEdit(@adventure, @stage, params, @validFields)
+      render 'adventure/editfield'
+    rescue ActiveRecord::RecordNotFound
+      @message = 'No such stage exists'
+      render 'error'
+    rescue ArgumentError => message
+      render 'edit'
+    end
   end
 
   def new

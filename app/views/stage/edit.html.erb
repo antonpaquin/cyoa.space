@@ -1,0 +1,15 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'edit' %>
+<div id="main" class="edit">
+<h1>Editing stage: <%=@stage.title%></h1>
+<h2>Stage</h2>
+<% @validFields.each do |field| %>
+<a href="/Edit/Stage/<%=@stage.id%>?field=<%=field%>"><%=field%></a>
+<%end%>
+<h2>Choices</h2>
+<% @stage.picks.each do |pick| %>
+<p><%=pick.title%></p><a href="/Edit/Pick/<%=pick.id%>">Edit</a><a href="/Delete/Pick/<%=pick.id%>">Delete</a>
+<%end%>
+<a href="/New/Pick">New</a>
+<p>Looking for a tutorial on how to build an adventure? </p><a href="/Guide">Click here.</a>
+</div>

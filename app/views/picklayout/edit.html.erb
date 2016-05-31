@@ -1,10 +1,10 @@
 <%= render 'shared/headerbar' %>
 <%= stylesheet_link_tag 'edit' %>
 <div id="main" class="edit">
-<h1>Editing choice: <%=@pick.title%></h1>
-<h2>Choice</h2>
+<h1>Editing choice layout: <%=@picklayout.title%></h1>
+<h2>Layout</h2>
 <% @validFields.each do |field| %>
-<a href="/Edit/Pick/<%=@pick.id%>?field=<%=field%>"><%=field%></a>
+<a href="/Edit/Picklayout/<%=@picklayout.id%>?field=<%=field%>"><%=field%></a>
 <%end%>
 <p>Looking for a tutorial on how to build an adventure? </p><a href="/Guide">Click here.</a>
 </div>

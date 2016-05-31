@@ -38,7 +38,8 @@ stagelayout = Stagelayout.create(
     $picks
     <p class="nextButton">Done</p>
     ',
-  title: 'Main'
+  title: 'Main',
+  adventure_id: adventure.id
   )
 
 stage = Stage.create(
@@ -57,7 +58,8 @@ picklayout = Picklayout.create(
       <p>$description</p>
     </div>
     ',
-  title: 'Magic thingy'
+  title: 'Magic thingy',
+  adventure_id: adventure.id
   )
 
 define_singleton_method("makePick") do |name|

@@ -3,7 +3,9 @@
 one:
   html: MyText
   title: MyString
+  adventure_id: 1
 
 two:
   html: MyText
   title: MyString
+  adventure_id: 1
