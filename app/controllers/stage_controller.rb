@@ -18,6 +18,17 @@ class StageController < ApplicationController
     render layout: false
   end
 
+  def edit
+    @stage = Stage.find(params[:id])
+    @adventure = Stage.adventure
+  end
+
+  def new
+  end
+
+  def delete
+  end
+
   private
   def getPick(name, sid)
     pick = Pick.where(stage_id: sid, pick: name).take

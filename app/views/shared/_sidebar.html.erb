@@ -3,7 +3,7 @@
 <div id="sidebar">
 	<div id="hideButton" class="sidebarButton"><div class="leftArrow"></div></div>
 	<div id="info">
-		<h1 class="title">Magic Items</h1>
+		<h1 class="title"><%=@adventure.title%></h1>
 		<p class="author">by <a><%=@adventure.account.name%></a></p>
 		<p class="description emboss"><%=@adventure.description%></p>
 	</div>
@@ -46,7 +46,7 @@
 		<h2>Options</h2>
 		<a>Rate</a>
 		<a>Favorite</a>
-		<a href="Edit">Edit</a>
+		<a href="/Edit/Adventure/<%=@adventure.id%>">Edit</a>
 		<a>Delete</a>
 		<a>Report</a>
 	</div>

@@ -5,6 +5,9 @@ Adventure -- what data needs to be carried across the whole thing
 	belongs_to account
 	has_many images
 
+	title
+		string
+		self-evident
 	css
 		text
 		Adventure-level CSS, will be applied to each page
@@ -14,9 +17,6 @@ Adventure -- what data needs to be carried across the whole thing
 	verify
 		text
 		only_if that tells what the state is allowed to be like at the end
-	title
-		string
-		self-evident
 	description
 		text
 		Actually a description, for index purposes.
@@ -98,6 +98,9 @@ Picklayout -- how a pick should be laid out
 	html
 		text
 		Defines a pick. See layout_spec
+	title
+		string
+		What do we call this layout
 
 Stagelayout -- how a stage should be laid out
 	has_many stages
@@ -105,6 +108,9 @@ Stagelayout -- how a stage should be laid out
 	html
 		text
 		Defines a stage. See layout_spec
+	title
+		string
+		What do we call this layout
 
 Account -- users
 	has_many adventures

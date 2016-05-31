@@ -1,9 +1,25 @@
 <%= render 'shared/headerbar' %>
 <%= stylesheet_link_tag 'adventure' %>
 <div id="main" class="edit">
-  <p>Adventure id: <%=@adventure.id%>
-  <p>Model: <%=@model%></p>
-  <p>Modelid: <%=@modelid%></p>
-  <p>Field: <%=@field%></p>
-  <p>Old value: <%=@old%></p>
+<h2>Editing <i><%=@field%></i> on Adventure <i><%=@adventure.title%></i></h2>
+<p>Old value:</p>
+<% if (@inputtype == "textarea") %>
+  <textarea readonly><%=@old%></textarea>
+<% elsif (@inputtype == "checkbox") %>
+  <input type="checkbox" <%=(if @old then "checked" else "" end)%> readonly disabled/>
+<% else %>
+  <input type="<%=@inputtype%>" value="<%=@old%>" readonly disabled/>
+<% end %>
+<p>New value:</p>
+<%= form_tag do %>
+  <% if (@inputtype == "textarea") %>
+    <textarea name="newvalue"></textarea>
+  <% else %>
+    <input type="<%=@inputtype%>" name="newvalue"/>
+  <% end %>
+  <input type="hidden" name="field" value="<%=@field%>" />
+  <input type="hidden" name="method" value="post" />
+  <input type="submit"/>
+<% end %>
+<a href="/Edit/Adventure/<%=@adventure.id%>">Back</a>
 </div>

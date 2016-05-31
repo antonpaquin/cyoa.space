@@ -6,11 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+password = "administrator"
+salt = (0...8).map { (1 + rand(254)).chr }.join.force_encoding('UTF-8')
+hash = Digest::SHA256.digest(salt + password).force_encoding('UTF-8')
 account = Account.create!(
-  name: 'Ataraxia',
-  pass_hash: '\xA73\xFF_\x1D/X\xBEP\xD87\xE5\x11n\x8B\x06DT\xC1\x14\xBC\x8F\x96Q\x99\xF3-{\x82d\xFBc',
+  name: 'Webmin',
+  pass_hash: hash,
   usergroup: 0,
-  salt: '#*$%888'
+  salt: salt
 )
 
 adventure = Adventure.create(
@@ -21,7 +24,7 @@ adventure = Adventure.create(
   description: "I'm trying to implement something super simple",
   playcount: 0,
   stagecount: 1,
-  rating: 5.1,
+  rating: 5,
   ratecount: 1,
   favorites: 0,
   account_id: account.id,
@@ -34,7 +37,8 @@ stagelayout = Stagelayout.create(
     <p>Pick three</p>
     $picks
     <p class="nextButton">Done</p>
-    '
+    ',
+  title: 'Main'
   )
 
 stage = Stage.create(
@@ -52,7 +56,8 @@ picklayout = Picklayout.create(
       <img $img_1/>
       <p>$description</p>
     </div>
-    '
+    ',
+  title: 'Magic thingy'
   )
 
 define_singleton_method("makePick") do |name|

@@ -2,6 +2,8 @@
 
 one:
   html: MyText
+  title: MyString
 
 two:
   html: MyText
+  title: MyString

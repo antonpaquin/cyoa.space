@@ -1,0 +1,2 @@
+class PicklayoutController < ApplicationController
+end

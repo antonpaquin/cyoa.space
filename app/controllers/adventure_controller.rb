@@ -7,20 +7,39 @@ class AdventureController < ApplicationController
   end
 
   def edit
-    if ( #Short circuit; if anything decides to render, it returns false and is therefore the last thing called
-    getAndVerifyAdventure(params[:id]) &&
-    verifyAuthentication(session[:power], session[:userId])
-    getAndVerifyModel(params[:model]) &&
-    getAndVerifyModelId(params[:modelid]) &&
-    getAndVerifyField(params[:field])
-    )
-      determineFieldInputType()
+    begin
+      @adventure = getAndVerifyAdventure(params[:id])
+      verifyAuthentication(@adventure, session[:power], session[:userId])
+
+      @field = params[:field]
+      @validFields = ["css","set","verify","title","description","public"]
+      verifyField(@field, @validFields)
+      @inputtype = determineFieldInputType(@field)
+
+      if (params[:method] == "post")
+        if (@inputtype == "checkbox")
+          params[:newvalue] = (if (params[:newvalue] == nil) then false else true end)
+        end
+        @adventure[@field] = params[:newvalue]
+        @adventure.save()
+      end
+
+      @old = getField(@adventure, @field)
       render 'editfield'
-      return
+    rescue IndexError, SecurityError => message
+      #User is unauthorized, or has an invalid field, or something really error-y
+      @message = message
+      render 'error'
+    rescue ArgumentError => message
+      #There's no field, give them the selection dialog
+      render 'edit'
     end
   end
 
-  def change
+  def delete
+  end
+
+  def new
   end
 
   def search
@@ -28,165 +47,42 @@ class AdventureController < ApplicationController
   end
 
   private
-  def getAndVerifyAdventure(adventure)
-    @adventure = Adventure.find(adventure)
-    #First, make sure we operate on a valid adventure
-    if (@adventure==nil)
-      @message = "No such adventure exists"
-      render 'error'
-      return false
+  def getAndVerifyAdventure(aid)
+    adventure = Adventure.find(aid)
+    if (adventure==nil)
+      raise IndexError, "No such adventure exists"
     end
-    return true
+    return adventure
   end
 
-  def verifyAuthentication(power, uid)
+  def verifyAuthentication(adventure, power, uid)
     #User is authed if they are the author, or have admin or dev level power
-    if (power == 2 and @adventure.account != uid)
-      @message = "You don't have the privilege to edit that adventure"
-      render 'error'
-      return false
+    if (power == 2 and adventure.account != uid)
+      raise SecurityError, "You don't have the privilege to edit that adventure"
     end
-    @id = @adventure.id
-    return true
   end
 
-  def getAndVerifyModel(model)
-    #If we don't have a model, start the edit process to select model
-    if (model == nil)
-      render 'edithome'
-      return false
-    end
-    #Make sure the model is valid
-    if (not ["adventure","stage","pick","image","stagelayout","picklayout"].include?(model))
-      @message="Invalid model"
-      render 'error'
-      return false
-    end
-    @model = model
-    return true
-  end
-
-  def getAndVerifyModelId(modelid)
-    #If we need to get a modelid, get it
-    if (modelid == nil)
-      if (@model == "stage")
-        render 'choosestage'
-        return false
-      elsif (@model == "pick")
-        render 'choosepick'
-        return false
-      end
-    #else next code block
-
-    #If we have a modelid, make sure it belongs to the adventure
-    else
-      if (@model == "stage")
-        if (not @adventure.stages.ids.include?(modelid))
-          @message="Stage doesn't belong to adventure"
-          render 'error'
-          return false
-        end
-      elsif (@model == "pick")
-        if (not @adventure.picks.ids.include?(modelid))
-          @message="Choice doesn't belong to adventure"
-          render 'error'
-          return false
-        end
-      elsif (@model == "stagelayout")
-        if not (@adventure.stagelayouts.ids.include?(modelid))
-          @message="Stage layout doesn't belong to adventure"
-          render 'error'
-          return false
-        end
-      elsif (@model == "picklayout")
-        if not (@adventure.picklayouts.ids.include?(modelid))
-          @message="Pick layout doesn't belong to adventure"
-          render 'error'
-          return false
-        end
-      end
-    end
-    @modelid = modelid
-    return true
-  end
-
-  def getAndVerifyField(field)
-    #Check which field we need, and what input type
+  def verifyField(field, validFields)
     if (field==nil)
-      if (@model=="adventure")
-        render 'editadventure'
-        return false
-      elsif (@model=="stage")
-        render 'editstage'
-        return false
-      elsif (@model=="pick")
-        render 'editpick'
-        return false
-      elsif (@model=="image")
-        render 'editimage'
-        return false
-      elsif (params[:model]=="stagelayout")
-        @field = 'html'
-        @old = Stagelayout.find(@modelid).html
-        render 'editfield'
-        return false
-      elsif (params[:model]=="picklayout")
-        @field='html'
-        @old=Picklayout.find(@modelid).html
-        render 'editfield'
-        return false
-      end
-    #else go to next block
-
-    #Make sure field is appropriate for the model
+      raise ArgumentError, "No field"
     else
-      if (@model=="adventure")
-        if (not ["css","set","verify","title","description","public"].include?(field))
-          @message="Invalid field"
-          render 'error'
-          return false
-        else
-          @old = @adventure[field]
-        end
-      elsif (@model=="stage")
-        if (not ["title","stagelayout_id","order","content"].include?(field))
-          @message="Invalid field"
-          render 'error'
-          return false
-        else
-          @old = Stage.find(@modelid)[field]
-        end
-      elsif (@model=="pick")
-        if (not ["pick","title","content","only_if","sets","picklayout_id","stage_id"].include?(field))
-          @message="Invalid field"
-          render 'error'
-          return false
-        else
-          @old = Pick.find(@modelid)[field]
-        end
+      if (not validFields.include?(field))
+        raise IndexError, "Invalid field"
       end
     end
-    @field = field
-    return true
   end
 
-  def determineFieldInputType()
-    @inputtype = {"css" => "textarea",
+  def getField(adventure, field)
+    return adventure[field]
+  end
+
+  def determineFieldInputType(field)
+    return {
+      "css" => "textarea",
       "set" => "textarea",
       "verify" => "textarea",
       "title" => "text",
       "description" => "textarea",
-      "public" => "checkbox",
-      "html" => "textarea",
-      "pick" => "text",
-      "title" => "text",
-      "content" => "textarea",
-      "only_if" => "textarea",
-      "sets" => "textarea",
-      "picklayout_id" => "number",
-      "stage_id" => "number",
-      "stagelayout_id" => "number",
-      "order" => "number"}[@field]
-    return true
+      "public" => "checkbox"}[field]
   end
 end

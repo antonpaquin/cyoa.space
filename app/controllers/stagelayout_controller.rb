@@ -1,0 +1,2 @@
+class StagelayoutController < ApplicationController
+end

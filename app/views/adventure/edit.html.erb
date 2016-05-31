@@ -1,0 +1,22 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'adventure' %>
+<div id="main" class="edit">
+<h1>Editing adventure: <%=@adventure.title%></h1>
+<h2>Adventure</h2>
+<% @validFields.each do |field| %>
+<a href="/Edit/Adventure/<%=@adventure.id%>?field=<%=field%>"><%=field%></a>
+<%end%>
+<h2>Stages</h2>
+<% @adventure.stages.each do |stage| %>
+<p><%=stage.title%></p><a href="/Edit/Stage/<%=stage.id%>">Edit</a><a href="/Destroy/Stage/<%=stage.id%>">Delete</a>
+<%end%>
+<a href="/Create/Stage">New</a>
+<h2>Stage Layouts</h2>
+<% @adventure.stagelayouts.each do |layout| %>
+<p><%=layout.title%></p><a href="/Edit/Stagelayout/<%=layout.id%>">Edit</a><a href="/Destroy/Stagelayout/<%=layout.id%>">Delete</a>
+<%end%>
+<a href="/Create/Stagelayout">New</a>
+<h2>Images</h2>
+<a href="/Edit/Image">Modify Images</a>
+<p>Looking for a tutorial on how to build an adventure? </p><a href="/Guide">Click here.</a>
+</div>
