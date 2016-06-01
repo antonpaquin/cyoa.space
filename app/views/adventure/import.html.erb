@@ -1,0 +1,11 @@
+<%= render 'shared/headerbar' %>
+<%= stylesheet_link_tag 'edit' %>
+<div id="main" class="edit">
+<h1>Adventure zipfile import</h1>
+<p>For an example of what your file tree should look like, </p><a href="#">click here</a>
+<%= form_tag({action: :import}, multipart: true) do %>
+  <%= file_field_tag 'zipfile' %>
+  <input type="hidden" name="method" value="post"/>
+  <input type="submit"/>
+<% end %>
+</div>
