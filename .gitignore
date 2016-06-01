@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+#Ignore secrets.yml FML why did I forget this
+/config/secrets.yml
+
+# Ignore my user uploaded stuff
+/public/advImports/*

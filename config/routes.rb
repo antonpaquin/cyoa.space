@@ -12,19 +12,22 @@ Rails.application.routes.draw do
   get 'Adventure/:id' => 'adventure#get'
   get 'Stage' => 'stage#get'
 
-  #route CUD on each model
-  #requires controllers with edit, change, delete, destroy, new, create
-  #UD take the :id parameter
-  #edit, delete, new are GETs that should ask for info / confirmation
-  #change, destroy, create are POSTs that should update the DB
-  ["adventure","stage","pick","stagelayout","picklayout","image"].each do |model|
-    ['edit','delete'].each do |action|
-      get action.capitalize + '/' + model.capitalize + '/:id' => model + '#' + action
-      post action.capitalize + '/' + model.capitalize + '/:id' => model + '#' + action
-    end
-    get 'New/' + model.capitalize => model + '#new'
-    post 'New/' + model.capitalize => model + '#new'
-  end
+  get 'Import' => 'adventure#import'
+  post 'Import' => 'adventure#import'
+  #NO FUCK THIS SHIT GO WITH FILE IMPORT
+    #route CUD on each model
+    #requires controllers with edit, change, delete, destroy, new, create
+    #UD take the :id parameter
+    #edit, delete, new are GETs that should ask for info / confirmation
+    #change, destroy, create are POSTs that should update the DB
+    #["adventure","stage","pick","stagelayout","picklayout","image"].each do |model|
+    #  ['edit','delete'].each do |action|
+    #    get action.capitalize + '/' + model.capitalize + '/:id' => model + '#' + action
+    #    post action.capitalize + '/' + model.capitalize + '/:id' => model + '#' + action
+    #  end
+    #  get 'New/' + model.capitalize => model + '#new'
+    #  post 'New/' + model.capitalize => model + '#new'
+    #end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
