@@ -64,10 +64,31 @@ class AdventureController < ApplicationController
     pickLayouts, pickLayoutIds = importLoadPickLayouts(path, adventure)
     stageLayouts, stageLayoutIds = importLoadStageLayouts(path, adventure)
     stages, picks = importLoadStagesAndPicks(path, adventure, stageLayoutIds, pickLayoutIds)
-  #rescue => e #Actually I like errors
-  #  @message = 'Import failed, ' + e.message
-  #  #Destroy everything
-  #  render 'error'
+    images = importLoadImages(path, adventure)
+    FileUtils.rm_rf Rails.root.join('public','advImports',session[:userId].to_s).to_s
+    FileUtils.rm_rf Rails.root.join('public','advImports',session[:userId].to_s).to_s + '.zip'
+  rescue => e
+    @message = 'Import failed, ' + e.message
+    FileUtils.rm_rf Rails.root.join('public','advImports',session[:userId].to_s).to_s
+    FileUtils.rm_rf Rails.root.join('public','advImports',session[:userId].to_s).to_s + '.zip'
+    adventure.destroy
+    pickLayouts.each do |pickLayout|
+      pickLayout.destroy
+    end
+    stageLayouts.each do |stageLayout|
+      stageLayout.destroy
+    end
+    stages.each do |stage| #Nested to try to get everything
+      picks = stage.picks
+      stage.destroy
+      picks.each do |pick|
+        pick.destroy
+      end
+    end
+    images.each do |image|
+      image.destroy
+    end
+    render 'error'
   end
 
   def importLoadAdventure(path)
@@ -167,6 +188,20 @@ class AdventureController < ApplicationController
       pickLayouts.push(pickLayout)
     end
     return pickLayouts, picklayoutIds
+  end
+
+  def importLoadImages(path, adventure)
+    images = []
+    image_path = path + 'Images/'
+    Dir[image_path + '*'].each do |imgName|
+      imgTitle = imgName[image_path.length..-1]
+      image = Image.create(
+        name: imgTitle,
+        adventure_id: adventure.id,
+        image: File.new(imgName, 'r'))
+      images.push(image)
+    end
+    return images
   end
 
   def importRead(filename)

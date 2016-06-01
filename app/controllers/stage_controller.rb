@@ -1,6 +1,6 @@
 class StageController < ApplicationController
   include ApplicationHelper
-  
+
   def get
     #Params: advId, stageNum
     stage = Stage.where(adventure_id: params[:advId], order: params[:stageNum]).take
@@ -53,6 +53,7 @@ class StageController < ApplicationController
     html = replaceVariables(html, json)
     return html
   end
+
   def replaceVariables(html, replace)
     #Translates strings like
     #html = "This is a string with var $foo string string string"
@@ -76,6 +77,13 @@ class StageController < ApplicationController
     end
     return html
   end
+
   def fixImageVars!(replace)
+    replace.each do |key, value|
+      if (key[0..2]=='img')
+        image = Image.where(adventure_id: params[:advId], name: value).take
+        replace[key] = "src=\""+image.image.url+"\""
+      end
+    end
   end
 end
