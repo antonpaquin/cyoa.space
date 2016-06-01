@@ -21,3 +21,4 @@
 
 # Ignore my user uploaded stuff
 /public/advImports/*
+/public/system/*
